@@ -1,0 +1,103 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Corinthia&family=Passion+One:wght@400;700;900&display=swap'); /* fonte importada do Google Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap'); /* fonte importada do Google Fonts */
+
+:root { /* seletor raiz onde é possível criar declarações */
+    --fonte1: Verdana, Geneva, Tahoma, sans-serif; /* a palavra fonte1  foi criada e modificada */
+    --fonte2: 'Berkshire Swash', cursive;
+    --fonte3: 'Sriracha', cursive;
+
+}
+
+* { /*  configuração global  */
+    margin: 0px;
+    padding: 0px;
+}
+
+html, body { /* pode-se configurar ao mesmo tempo duas declarações p/ ñ precisar repetir as propriedades */
+    background-color: darkgrey;
+    min-height: 100%; /* o tamanho mínimo do body/corpo será de 100% da tela. Pode-se usar tb 100vh (viewport height)  */
+    font-family: var(--fonte1); /*   esses valores foram criados em :root  */
+}
+
+header {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 50px;
+}
+
+header h1 {
+    font-variant: small-caps; /* deixa todas as letras maiúsculas, porém com a primera letra de cada paalavra um pouco maior. Caso queira deixar todas em caixa alta idênticas, basta usar text-transform: uppercase;  */ 
+    font-family: var(--fonte2);
+    font-size: 5vw; /*  significa 10% em relação a largura da tela. Então se a tela aumentar ou diminuir, será mantido o tamanho da fonte sempre em 10% em relação a largura dela.  vw = viewport width */
+}
+
+a {
+    color: white;
+    text-decoration: none; /* para retirar os sublinhado dos links */
+    font-weight: bolder; /* para deixar em negrito */
+    /* caso existissem outros links no texto que não fossem receber os estilos acima, a declaração deveria ser no seguinte formato:    header a, footer a    pois assim, os estilos se manteriam somente no cabeçalho e rodapé.  */
+}
+
+a:hover { /* aplica os estilos abaixo quando passa a seta do mouse sobre, neste caso, os links */
+    text-decoration: underline;
+    /* caso existissem outros links no texto que não fossem receber o estilo acima, a declaração deveria ser no seguinte formato:    header a:hover, footer a:hover    pois assim, o estilo se manteria somente no cabeçalho e rodapé.  */
+}
+
+section {
+    padding-top: 10vh; /* vh = viewport height */
+    padding-bottom: 10vh;
+    /* esses estilos criaram bordas em todas seções ampliando a distância entre elas. Isso permitirá fazer eo feito de parallax (imagens de fundo diferntes enquanto rola a página de acordo com as estrofes do poema  */
+    line-height: 2em; /* cria um espaçamento entre cada linha dentro das section's  */
+    padding-left: 30px ; /* cria uma borda somente do lado esquerdo afastando o texto um pouco da borda */
+    font-family: var(--fonte3);
+    font-size: 2vw; /*  significa 5% em relação a largura da tela. Então se a tela aumentar ou diminuir, será mantido o tamanho da fonte sempre em 5% em relação a largura dela.  vw = viewport width */
+}
+
+section p {
+    padding-bottom: 1em; /* com essa configuração foi possível separar as estrofes que estão em uma mesma section porém em tag's  p  separadas  no HTML */
+}
+
+.normal {
+    background-color: white;
+    color: black;
+}
+
+.imagem {
+    background-color: rgb(51, 51, 51);
+    color: white; 
+    box-shadow: inset 6px 6px 13px 0px rgba(0, 0, 0, 0.473);    /* tipo encaixe com descolamento lateral e vertical, espalhamento, ampliação e cor */
+    background-size: cover; /* cobrir todo o background com a imagem inserida. Nesse caso será aplicado em toda tag no html que estiver com class = imagem */ 
+    background-attachment: fixed; /* fixa todo background inserido na tag com class=imagem quando rola a página. Nesse exemplo, as imagens inseridas ficarão fixas quando rolar a tela, causando o efeito parallax (objetos parecerem estar em diferentes posições, direções ou tamanhos quando observados em diferentes posições).  */
+}
+
+.imagem p {
+    background-color: rgba(0, 0, 0, 0.514);
+    text-shadow: 1px 1px 0px black; /* descolamento lateral e vertical, espalhamento e cor */ 
+    display: inline-block; /* faz com que a caixa criada com o background-color se adapte com o tamanho do texto de acordo com o tamanho da tela */
+    padding: 10px;
+}
+
+#img01 {
+    background-image: url('../imagens/background001.jpg'); /* os dois ponto seguidos (..) é para indicar que a pasta imagens é uma pasta anterior ou que a pasta ñ está dentro da pasta que se encontra o arquivo style.css */
+    background-position: right center; /* permite posicionar a imagem a partir dos valores definidos, neste caso, a partir do centro lado direto */
+}
+
+#img02 {
+    background-image: url('../imagens/background002.jpg');
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+
+/* lembrando que os termos em amarelo são seletores e tudo dentro deles são declarações (propriedades + valores)  */
+
+/*   class = .       id =  #    */
